@@ -154,13 +154,13 @@
          margin: 1px 2px;
          text-decoration: none;
          background-color: #fff;
-         border: 1px solid #dee2e6;
+        
          font-size: 13px;
          display: inline-block;
          position: relative;
          width: auto;
-         min-width: 10%;
-         padding: 0px 8px;
+         min-width: %;
+        
          }
          #app-navigation ul li ul li ul {
          min-width: 8%;
@@ -183,17 +183,11 @@
    <body
       class="sidebar-mini control-sidebar-slide-open layout-navbar-fixed layout-fixed">
       <div class="wrapper">
-         <!-- Preloader -->
-         <div
-            class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="dist/img/AdminLTELogo.png"
-               alt="AdminLTELogo" height="60" width="60">
-         </div>
+    
          <!-- Navbar -->
          <nav class="main-header navbar navbar-expand navbar-light bg-info">
             <!-- Left navbar links -->
-            <!-- Left navbar links -->
-            <ul class="navbar-nav">
+              <ul class="navbar-nav">
                <li class="nav-item"><a class="nav-link" data-widget="pushmenu"
                   href="#" role="button" style="color: #fff"><i
                   class="fas fa-bars"></i></a></li>
@@ -211,48 +205,41 @@
                </li>
                <!-- Notifications Dropdown Menu -->
                <li class="nav-item dropdown">
-                  <a class="nav-link"
-                     data-toggle="dropdown" href="#"> <img
-                     src="/nthphase/nthphase/sample_user.jpg" height="30px"
-                     style="border-radius: 50%;">
+                  <a class="nav-link" data-toggle="dropdown" href="#"> 
+                  <i class="nav-icon fas fa-light fa-user"></i>
+                     
                   </a>
-                  <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right"
-                  style="width:"10%">
+                  <div class="dropdown-menu dropdown-menu-right"
+                  style="width:5%">
+                  
                   <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item"> <i>
-                  ${userLogin.userLoginId?if_exists}</i>
-                  </a>
+
+                  <a href="#" class="dropdown-item">
+					${userLogin.userLoginId?if_exists}
+					<span class="float-right text-muted text-sm"></span>
+				  </a>
                   <div class="dropdown-divider"></div>
-                  <a href="<@ofbizUrl>logout</@ofbizUrl>"> <i> <img
-                     src="/nthphase/nthphase/logout_icon.png" height="15px"
-                     style="padding-right: 5px;"> ${uiLabelMap.CommonLogout}
-                  </i></a>
-      </div>
-      </li>
-      </ul>
-      </nav>
+
+                  <a  href="<@ofbizUrl>logout</@ofbizUrl>" class="dropdown-item">
+					${uiLabelMap.CommonLogout}
+					<span class="float-right text-muted text-sm"></span>
+				  </a>
+                 </div>
+                 </li>
+                 </ul>
+              </nav>
       <!-- /.navbar -->
       <!-- Main Sidebar Container -->
       <aside class="main-sidebar elevation-4 sidebar-light-info">
          <!-- Brand Logo -->
+         <div class="form-inline">
          <a href="#" class="brand-link bg-info"> <span
             class="brand-text font-weight-bold">Nth Phase</span>
          </a>
+         </div>
          <!-- Sidebar -->
          <div class="sidebar">
-            <!-- Sidebar user (optional) -->
-            <!-- SidebarSearch Form -->
-            <div class="form-inline">
-               <div class="input-group" data-widget="sidebar-search">
-                  <input class="form-control form-control-sidebar" type="search"
-                     placeholder="Search" aria-label="Search">
-                  <div class="input-group-append">
-                     <button class="btn btn-sidebar">
-                     <i class="fas fa-search fa-fw"></i>
-                     </button>
-                  </div>
-               </div>
-            </div>
+
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                <ul class="nav nav-pills nav-sidebar flex-column"
@@ -380,6 +367,7 @@
       		alert(inHtml);
       		//$('#menuList').append(new Option(an, an))
       	});
+      	$('#app-navigation ul li ul li a').addClass('btn btn-block bg-gradient-info btn-xs');
       });
    </script>
 </html>
