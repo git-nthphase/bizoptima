@@ -171,9 +171,9 @@ under the License.
             <widgets>
                 <decorator-screen name="CommonEntityDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
-                        <screenlet title="${uiLabelMap.WebtoolsFindRecord}">
+                   <!--  	<screenlet title="${uiLabelMap.WebtoolsFindRecord}">
                             <include-form name="FilterEntities" location="component://webtools/widget/EntityForms.xml"/>
-                        </screenlet>
+                        </screenlet> 
                         <screenlet title="${uiLabelMap.WebtoolsFindRecord}">
                             <iterate-section entry="firstChar" list="firstChars" view-size="100">
                                 <section>
@@ -185,7 +185,10 @@ under the License.
                         </screenlet>
                         <screenlet title="${uiLabelMap.WebtoolsEntitiesAlpha}">
                             <include-grid name="ListEntities" location="component://webtools/widget/EntityForms.xml"/>
-                        </screenlet>
+                        </screenlet> -->
+                                <platform-specific>
+                                    <html><html-template location="component://webtools/template/entity/ListEntities.ftl"/></html>
+                                </platform-specific>
                     </decorator-section>
                 </decorator-screen>
             </widgets>

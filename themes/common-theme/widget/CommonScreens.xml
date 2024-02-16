@@ -163,7 +163,7 @@
 	</screen>
 
 	<!-- Global decorator Customized -->
-	<screen name="GlobalDecorator1">
+	<screen name="GlobalDecorator">
 		<section>
 			<widgets>
 				<include-screen name="GlobalActions" />
@@ -240,7 +240,7 @@
 		</section>
 	</screen>
 	<!-- Global decorator for General Screens/Pages -->
-	<screen name="GlobalDecorator">
+	<screen name="GlobalDecorator1">
 		<section>
 			<widgets>
 				<section>
