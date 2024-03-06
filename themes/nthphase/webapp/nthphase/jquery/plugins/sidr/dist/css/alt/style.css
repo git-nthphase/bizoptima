@@ -467,6 +467,7 @@ render borders around empty <td> elements */
 
 .nav-pager ul {
 	display: inline; /* IE Fix */
+	list-style: none;
 }
 
 .nav-pager ul li {
@@ -478,7 +479,7 @@ render borders around empty <td> elements */
 }
 
 .nav-pager ul li a {
-	display: block;
+	display: inline-block;
 	height: 16px;
 	width: 16px;
 	text-indent: -3000px;
