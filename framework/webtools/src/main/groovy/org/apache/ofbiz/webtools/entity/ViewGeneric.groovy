@@ -31,6 +31,7 @@ import org.apache.ofbiz.base.util.UtilFormatOut
 import org.apache.ofbiz.base.util.UtilMisc
 
 String entityName = parameters.entityName
+println("entityName==="+entityName);
 context.entityName = entityName
 
 ModelReader reader = delegator.getModelReader()

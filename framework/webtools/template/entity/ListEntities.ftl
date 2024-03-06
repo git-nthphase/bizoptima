@@ -22,11 +22,11 @@ under the License.
           <select name="filterByGroupName">
              <option value="">${uiLabelMap.CommonAll}</option>
              <#list entityGroups as group>
-                <option value="${group}" <#if filterByGroupName??><#if group = filterByGroupName>selected="selected"</#if></#if>>${group}</option>
+                <option value="${group}" <#if filterByGroupName?exists><#if group = filterByGroupName>selected="selected"</#if></#if>>${group}</option>
              </#list>
           </select>
           <b>${uiLabelMap.WebtoolsEntityName}:</b>
-          <input type= "text" name= "filterByEntityName" value="${parameters.filterByEntityName!}"/>
+          <input type= "text" name= "filterByEntityName" value="${parameters.filterByEntityName?if_exists}"/>
           <input type="submit" value="${uiLabelMap.CommonApply}"/>
        </form>
     </div>
@@ -43,7 +43,12 @@ under the License.
       </#list>
     </div>
     <div class="screenlet">
-
+      <div class="screenlet-title-bar">
+        <ul>
+          <li class="h3">${uiLabelMap.WebtoolsEntitiesAlpha}</li>
+        </ul>
+        <br class="clear"/>
+      </div>
       <div class="screenlet-body">
         <#assign firstChar = "*">
         <table class="basic-table hover-bar" cellspacing='0'>
@@ -74,13 +79,21 @@ under the License.
             <td<#if anchor?has_content> ${anchor}</#if>>${entity.entityName}<#if entity.viewEntity == 'Y'>&nbsp;(${uiLabelMap.WebtoolsEntityView})</#if></td>
             <#assign anchor="">
             <td class="button-col">
-              <#if entity.viewEntity != 'Y' && entity.entityPermissionCreate == 'Y'>
-                <a href='<@ofbizUrl>entity/create/${entity.entityName}</@ofbizUrl>' title='${uiLabelMap.CommonCreate}'>${uiLabelMap.WebtoolsCreate}</a>
-              </#if>
-              <#if entity.entityPermissionView == 'Y'>
-                <a href='<@ofbizUrl>entity/relations/${entity.entityName}</@ofbizUrl>'>${uiLabelMap.WebtoolsReln}</a>
-                <a href='<@ofbizUrl>entity/find/${entity.entityName}</@ofbizUrl>'>${uiLabelMap.WebtoolsFind}</a>
-                <a href='<@ofbizUrl>entity/find/${entity.entityName}?noConditionFind=Y</@ofbizUrl>'>${uiLabelMap.WebtoolsAll}</a>
+              <#if entity.viewEntity == 'Y'>
+                <#if entity.entityPermissionView == 'Y'>
+                  <a href='<@ofbizUrl>ViewRelations?entityName=${entity.entityName}</@ofbizUrl>'>${uiLabelMap.WebtoolsReln}</a>
+                  <a href='<@ofbizUrl>FindGeneric?entityName=${entity.entityName}</@ofbizUrl>'>${uiLabelMap.WebtoolsFind}</a>
+                  <a href='<@ofbizUrl>FindGeneric?entityName=${entity.entityName}&amp;find=true&amp;VIEW_SIZE=50&amp;VIEW_INDEX=0</@ofbizUrl>'>${uiLabelMap.WebtoolsAll}</a>
+                </#if>
+              <#else>
+                <#if entity.entityPermissionCreate == 'Y'>
+                  <a href='<@ofbizUrl>ViewGeneric?entityName=${entity.entityName}</@ofbizUrl>' title='${uiLabelMap.CommonCreateNew}'>${uiLabelMap.WebtoolsCreate}</a>
+                </#if>
+                <#if entity.entityPermissionView == 'Y'>
+                  <a href='<@ofbizUrl>ViewRelations?entityName=${entity.entityName}</@ofbizUrl>' title='${uiLabelMap.WebtoolsViewRelations}'>${uiLabelMap.WebtoolsReln}</a>
+                  <a href='<@ofbizUrl>FindGeneric?entityName=${entity.entityName}</@ofbizUrl>' title='${uiLabelMap.WebtoolsFindRecord}'>${uiLabelMap.WebtoolsFind}</a>
+                  <a href='<@ofbizUrl>FindGeneric?entityName=${entity.entityName}&amp;find=true&amp;VIEW_SIZE=50&amp;VIEW_INDEX=0</@ofbizUrl>' title='${uiLabelMap.WebtoolsFindAllRecords}'>${uiLabelMap.WebtoolsAll}</a>
+                </#if>
               </#if>
             </td>
             <#if right_col>
