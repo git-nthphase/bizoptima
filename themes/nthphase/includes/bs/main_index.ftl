@@ -114,114 +114,9 @@
 	href="<@ofbizContentUrl>/nthphase/jquery/plugins/sidr/plugins/summernote/summernote-bs4.min.css</@ofbizContentUrl>"
 	type="text/css" />
 <link rel="stylesheet"
-	href="<@ofbizContentUrl>/nthphase/jquery/plugins/sidr/dist/css/alt/style.css</@ofbizContentUrl>"
+	href="<@ofbizContentUrl>/nthphase/bizStyle.css</@ofbizContentUrl>"
 	type="text/css" />
-	 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
-<style type="text/css">
-#content {
-	margin: 2px 2px 2px 10px;
-}
-
-#app-navigation {
-	display: block;
-	width: 100%;
-	border-bottom: 0px solid #17a2b8;
-	box-shadow: 0px 2px #17a2b8;
-}
-
-#app-navigation h2 {
-	display: none;
-}
-
-#app-navigation ul {
-	width: 100%;
-	display: table;
-	table-layout: fixed;
-	margin: 0px;
-	padding: 0px;
-}
-
-#app-navigation ul li {
-	list-style: none;
-	float: left;
-}
-
-#app-navigation ul li ul {
-	width: 100%;
-	display: table;
-	table-layout: fixed;
-	padding: 0;
-}
-
-#app-navigation ul li ul li a {
-	colur: white;
-}
-
-#app-navigation ul li ul li {
-	list-style-type: none;
-	text-align: center;
-	margin: 1px 2px;
-	text-decoration: none;
-	background-color: #fff;
-	font-size: 13px;
-	display: inline-block;
-	position: relative;
-	width: auto;
-	min-width: %;
-}
-
-#app-navigation ul li ul li ul {
-	min-width: 8%;
-	left: 10px;
-	background: #D3D3D3;
-	position: absolute;
-	z-index: 999;
-	display: none;
-}
-
-#app-navigation ul li ul li ul li {
-	display: block;
-	width: 100%;
-	border-bottom: 1px solid #ffffff;
-}
-
-#app-navigation ul li ul li:hover ul {
-	display: block;
-}
-
-.nav-item {
-	position: relative;
-}
-
-.nav-item:hover {
-	background-color: #f0f0f0; /* Add hover effect */
-}
-
-.nav-item a {
-	display: block;
-	padding: 10px 15px;
-	color: #333;
-	text-decoration: none;
-	transition: all 0.3s ease; /* Add transition effect */
-}
-
-.nav-item:hover>a {
-	color: #000; /* Change text color on hover */
-}
-
-.nav-item.has-submenu>a::after {
-	content: "\f078"; /* FontAwesome icon for submenu indicator */
-	font-family: "Font Awesome 5 Free";
-	position: absolute;
-	right: 10px;
-	top: 50%;
-	transform: translateY(-50%);
-}
-
-.first-item {
-  order: -1; /* Push this item to the start */
-}
-</style>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
 </head>
 <body
   class="sidebar-mini control-sidebar-slide-open layout-navbar-fixed layout-fixed">
@@ -299,7 +194,7 @@
 	             <li class="${menuCla}" id="${display.name}">
 	                <a href="${thisURL + externalKeyParam}"
 	                <#if selected>class="nav-link active"><#else>class="nav-link"></#if>  
-	                <img src="/nthphase/images/${display.name}.png" height="35px">
+	                <img src="/nthphase/images/${display.name}.png" height="30px">
 	                <p><b>${display.title}</b></p>
 	                <!--<#if selected> <i class="fas fa-angle-right right"></i> <#else><i class="fas fa-angle-left right"></i></#if>-->
 	                </a>
@@ -354,8 +249,12 @@
  <!-- AdminLTE App -->
   <script language="javascript" type="text/javascript"
      src="<@ofbizContentUrl>/nthphase/jquery/plugins/sidr/js/adminlte.min.js</@ofbizContentUrl>"></script>
-     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+ <script language="javascript" type="text/javascript"
+     src="<@ofbizContentUrl>/nthphase/dropdown.js</@ofbizContentUrl>"></script>
+     
+     
+ <script language="javascript" type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script language="javascript" type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
 </body>
 </#if>
 <script type="text/javascript">

@@ -10,7 +10,7 @@
       background-color: #f4f4f4;
     }
     .login-container {
-      max-width: 400px;
+      max-width: 350px;
       margin: 50px auto;
       background-color: #fff;
       padding: 20px;
@@ -32,11 +32,12 @@
       border: 1px solid #ccc;
       border-radius: 3px;
       box-sizing: border-box;
+      box-shadow: 0 0 5px #009C8C
     }
     .login-container input[type="submit"] {
       width: 100%;
       padding: 10px;
-      background-color: #007bff;
+      background-color: #009dc4;
       color: #fff;
       border: none;
       border-radius: 3px;
@@ -47,7 +48,7 @@
       background-color: #0056b3;
     }
     h3{
-      background-color: #0056b3;
+      background-color: #009dc4;
     }
     .login-container .forgot-password {
       margin-top: 10px;
@@ -106,7 +107,7 @@
     </#if>
     <input type="submit" value="Login"/>
   </form>
-  <a href="<@ofbizUrl>forgotPassword_step1</@ofbizUrl>" class="forgot-password">Forgot your password?</a>
+  <div style="text-align: center; font-size:12px;"><a href="<@ofbizUrl>forgotPassword_step1</@ofbizUrl>" class="forgot-password">Forgot your password?</a></div>
 </div>
 
 <script>
