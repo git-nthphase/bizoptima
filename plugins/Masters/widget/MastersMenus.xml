@@ -16,12 +16,24 @@
 	<menu name="MainAppBar" title="${uiLabelMap.MastersApplication}"
 		extends="CommonAppBarMenu"
 		extends-resource="component://common/widget/CommonMenus.xml">
+		<menu-item name="Users"
+				title="${uiLabelMap.Users}">
+				<link target="users" />
+				<menu-item name="Find User"
+				title="${uiLabelMap.FindUser}">
+				<link target="findUser" />
+			   </menu-item>
+				
+			</menu-item>
+		
+		
 		<menu-item name="Facility" title="${uiLabelMap.Facility}">
 			<link target="findFacility" />
 			<menu-item name="Facility Group"
 				title="${uiLabelMap.FacilityGroup}">
 				<link target="findFacilityGroup" />
 			</menu-item>
+			
 			<menu-item name="Facility Group Member"
 				title="${uiLabelMap.FacilityGroupMember}">
 				<link target="findFacilityGroupMember" />

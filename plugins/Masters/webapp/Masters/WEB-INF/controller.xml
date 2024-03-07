@@ -37,6 +37,25 @@
 		<response name="success" type="view"
 			value="findFacilityGroupMember" />
 	</request-map>
+	<request-map uri="users">
+		<security https="true" auth="true" />
+		<response name="success" type="view"
+			value="users" />
+	</request-map>
+	<request-map uri="findUser">
+		<security https="true" auth="true" />
+		<response name="success" type="view"
+			value="findUser" />
+	</request-map>
+	 <request-map uri="createCustomer">
+        <security https="true" auth="true"/>
+        <event type="simple" path="component://party/minilang/user/UserEvents.xml" invoke="createCustomer"/>
+        <response name="success" type="request-redirect" value="users">
+            <redirect-parameter name="partyId"/>
+        </response>
+        <response name="error" type="view" value="users"/>
+    </request-map>
+	
 
 	<!-- View Mappings -->
 	<view-map name="main" type="screen"
@@ -47,4 +66,8 @@
 		page="component://Masters/widget/MastersScreens.xml#findFacilityGroup" />
 	<view-map name="findFacilityGroupMember" type="screen"
 		page="component://Masters/widget/MastersScreens.xml#findFacilityGroupMember" />
+	<view-map name="users" type="screen"
+		page="component://Masters/widget/MastersScreens.xml#users" />
+	<view-map name="findUser" type="screen"
+		page="component://Masters/widget/MastersScreens.xml#findparty" />	
 </site-conf>
