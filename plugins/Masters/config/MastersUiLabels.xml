@@ -56,4 +56,12 @@ under the License.
         <value xml:lang="en">Facility Group Member</value>
         <value xml:lang="es">Facility Group Member</value>
     </property>
+       <property key="Users">
+        <value xml:lang="en">Users</value>
+        <value xml:lang="es">Users</value>
+    </property>
+    <property key="FindUser">
+        <value xml:lang="en">Find User</value>
+        <value xml:lang="es">Find User</value>
+    </property>
 </resource>
