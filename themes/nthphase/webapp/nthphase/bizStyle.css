@@ -650,7 +650,6 @@ A IMG.imageborder {
 	/* margin: 0% 1% 1% 0%; */
 	width: 49%;
 	background-color: #eeeeee;
-	padding: ;
 	border-radius: 5px;
 	position: relative;
 	top: 5px;
@@ -663,7 +662,6 @@ A IMG.imageborder {
 	position: relative;
 	top: 5px;
 	background-color: #f4f4f4;
-	padding: ;
 	border-radius: 5px;
 	float: right;
 	height: 1%;
@@ -1315,7 +1313,6 @@ ul#preferences-menu li a.help-link {
 	display: inline-block;
 	position: relative;
 	width: auto;
-	min-width: %;
 }
 
 #app-navigation ul li ul li ul {
@@ -2414,8 +2411,6 @@ Lookups
 #wait-spinner {
 	z-index: 50000;
 	position: absolute;
-}
-
 }
 .wait-spinner div {
 	padding-top: 4px;
@@ -4691,7 +4686,6 @@ box-shadow: 0px 9px 45px 4px rgba(0,0,0,0.61);
 
 .dropdown ul li ul li ul li a,.dropdown ul li ul li ul li a:link,.dropdown ul li ul li ul li a:visited
 	{
-	color:;
 }
 
 #pagetitle {
@@ -4720,12 +4714,6 @@ box-shadow: 0px 9px 45px 4px rgba(0,0,0,0.61);
 	text-decoration: none;*/
 }
 
-/* css head freeze disabled */
-/* .head-freez */ {
-	position: fixed;
-	width: 100%;
-	z-index: 1;
-}
 
 .col-sm-6{
 	height: 0px;
@@ -4749,7 +4737,6 @@ box-shadow: 0px 9px 45px 4px rgba(0,0,0,0.61);
 
 .dropdown-content_pro {
     display: none;
-    position: ;
     height: 160px;
     background-color: #0067AC;
     min-width: 160px;
@@ -4924,7 +4911,6 @@ border-top: 1px solid #dddddd;
     padding: 3px;
     background: #f46c7e;
     color: #ffffff;
-    opacity: ;
     height: 15px;
     width: 15px;
     line-height: 15px;
@@ -4993,7 +4979,6 @@ border-top: 1px solid #dddddd;
 	box-shadow:1px 1px 2px #999999;
 	 cursor:pointer;
 	
-}
 }
     .headSP:hover{
     background-color:red;
