@@ -196,7 +196,6 @@ fieldIterator = modelEntity.getFieldsIterator();
 while (fieldIterator.hasNext()) {
     ModelField field = fieldIterator.next();
     ModelFieldType type = delegator.getEntityFieldType(modelEntity, field.getType());
-
     Map fieldMap = new HashMap<>();
     fieldMap.put("name", field.getName());
     fieldMap.put("isPk", (field.getIsPk() == true) ? "Y" : "N");

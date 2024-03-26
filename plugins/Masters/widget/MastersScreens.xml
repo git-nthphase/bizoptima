@@ -1,35 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
-	license agreements. See the NOTICE file distributed with this work for additional 
-	information regarding copyright ownership. The ASF licenses this file to 
-	you under the Apache License, Version 2.0 (the "License"); you may not use 
-	this file except in compliance with the License. You may obtain a copy of 
-	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
-	by applicable law or agreed to in writing, software distributed under the 
-	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
-	OF ANY KIND, either express or implied. See the License for the specific 
-	language governing permissions and limitations under the License. -->
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements. See the NOTICE file distributed with this work for additional information regarding copyright ownership. 
+	The ASF licenses this file to you under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+	See the License for the specific language governing permissions and limitations under the License. -->
 
-<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://ofbiz.apache.org/Widget-Screen"
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ofbiz.apache.org/Widget-Screen"
 	xsi:schemaLocation="http://ofbiz.apache.org/Widget-Screen http://ofbiz.apache.org/dtds/widget-screen.xsd">
 
 	<screen name="findFacility">
 		<section>
 			<actions>
-				<set field="headerItem" value="Facility" /><!-- this highlights the 
-					selected menu-item with name "main" -->
-					 <script location="component://Masters/src/main/groovy/facility/findFacility.groovy"/>
+				<set field="headerItem" value="Facility" />
+				<script location="component://Masters/src/main/groovy/facility/findFacility.groovy" />
 			</actions>
 			<widgets>
-				<decorator-screen name="MastersCommonDecorator"
-					location="${parameters.mainDecoratorLocation}">
+				<decorator-screen name="MastersCommonDecorator" location="${parameters.mainDecoratorLocation}">
 					<decorator-section name="body">
 						<screenlet>
 							<platform-specific>
 								<html>
-									<html-template
-										location="component://Masters/template/facilityMasters.ftl" />
+									<html-template location="component://Masters/template/facilityMasters.ftl" />
 								</html>
 							</platform-specific>
 						</screenlet>
@@ -41,12 +31,10 @@
 	<screen name="findFacilityGroup">
 		<section>
 			<actions>
-				<set field="headerItem" value="Facility Group" /><!-- this highlights 
-					the selected menu-item with name "main" -->
+				<set field="headerItem" value="Facility Group" />
 			</actions>
 			<widgets>
-				<decorator-screen name="MastersCommonDecorator"
-					location="${parameters.mainDecoratorLocation}">
+				<decorator-screen name="MastersCommonDecorator" location="${parameters.mainDecoratorLocation}">
 					<decorator-section name="body">
 					</decorator-section>
 				</decorator-screen>
@@ -57,12 +45,10 @@
 		<section>
 			<actions>
 				<set field="headerItem" value="Facility" />
-				<set field="subHeaderItem" value="Facility Group Member" /><!-- this 
-					highlights the selected menu-item with name "main" -->
+				<set field="subHeaderItem" value="Facility Group Member" /><!-- this highlights the selected menu-item with name "main" -->
 			</actions>
 			<widgets>
-				<decorator-screen name="MastersCommonDecorator"
-					location="${parameters.mainDecoratorLocation}">
+				<decorator-screen name="MastersCommonDecorator" location="${parameters.mainDecoratorLocation}">
 					<decorator-section name="body">
 					</decorator-section>
 				</decorator-screen>
@@ -72,12 +58,10 @@
 	<screen name="main">
 		<section>
 			<actions>
-				<set field="headerItem" value="main" /><!-- this highlights the selected 
-					menu-item with name "main" -->
+				<set field="headerItem" value="main" /><!-- this highlights the selected menu-item with name "main" -->
 			</actions>
 			<widgets>
-				<decorator-screen name="MastersCommonDecorator"
-					location="${parameters.mainDecoratorLocation}">
+				<decorator-screen name="MastersCommonDecorator" location="${parameters.mainDecoratorLocation}">
 					<decorator-section name="body">
 					</decorator-section>
 				</decorator-screen>
@@ -87,19 +71,16 @@
 	<screen name="users">
 		<section>
 			<actions>
-				<set field="headerItem" value="User" /><!-- this highlights the selected 
-					menu-item with name "main" -->
-				 <script location="component://Masters/src/main/groovy/facility/findParty.groovy"/>	
+				<set field="headerItem" value="User" /><!-- this highlights the selected menu-item with name "main" -->
+				<script location="component://Masters/src/main/groovy/facility/findParty.groovy" />
 			</actions>
 			<widgets>
-				<decorator-screen name="MastersCommonDecorator"
-					location="${parameters.mainDecoratorLocation}">
+				<decorator-screen name="MastersCommonDecorator" location="${parameters.mainDecoratorLocation}">
 					<decorator-section name="body">
-					<screenlet>
+						<screenlet>
 							<platform-specific>
 								<html>
-									<html-template
-										location="component://Masters/template/users.ftl" />
+									<html-template location="component://Masters/template/users.ftl" />
 								</html>
 							</platform-specific>
 						</screenlet>
@@ -109,56 +90,325 @@
 		</section>
 	</screen>
 	<screen name="findparty">
-        <section>
-            <actions>
-                <!-- <set field="titleProperty" value="PageTitleFindParty"/>
-                <set field="headerItem" value="find"/>
-                <set field="tabButtonItem" value="findparty"/>
-                <set field="helpAnchor" value="_help_for_the_party_find_screen"/>
-                asmselect parameters, must be prefixed by asm_ for SetMultipleSelectJs.ftl
-                <set field="asm_multipleSelectForm" value="LookupParty"/>
-                <set field="asm_multipleSelect" value="LookupParty_partyClassificationGroupId"/>
-                <set field="asm_formSize" value="700"/>
-                <set field="asm_listItemPercentOfForm" value="95"/>
-                <set field="asm_sortable" value="false"/>
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleFindParty" />
+				<set field="headerItem" value="User" />
+				<set field="subHeaderItem" value=" Find" />
+				<set field="helpAnchor" value="_help_for_the_party_find_screen" />
+				<set field="asm_multipleSelectForm" value="LookupParty" />
+				<set field="asm_multipleSelect" value="LookupParty_partyClassificationGroupId" />
+				<set field="asm_formSize" value="700" />
+				<set field="asm_listItemPercentOfForm" value="95" />
+				<set field="asm_sortable" value="false" />
+				<set field="initialyCollapsed" value="${groovy:'Y'.equals(parameters.hideFields)}" type="String" />
+				<script location="component://Masters/src/main/groovy/facility/findParty.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="pre-body">
+						<include-menu name="MainActionMenu" location="component://party/widget/partymgr/PartyMenus.xml" />
+					</decorator-section>
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template multi-block="true" location="component://common-theme/template/includes/SetMultipleSelectJs.ftl" />
+							</html>
+						</platform-specific>
+						<section>
+							<!-- do check for PARTYMGR, _VIEW permission -->
+							<condition>
+								<if-service-permission service-name="partyBasePermissionCheck" main-action="VIEW" />
+							</condition>
+							<widgets>
+								<screenlet id="FindPartyPanel">
+									<platform-specific>
+										<html>
+											<html-template location="component://Masters/template/findUser.ftl" />
+										</html>
+									</platform-specific>
 
-                <set field="initialyCollapsed" value="${groovy:'Y'.equals(parameters.hideFields)}" type="String"/> -->
-                <script location="component://Masters/src/main/groovy/facility/findParty.groovy"/>
-            </actions>
-            <widgets>
-                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
-                    <decorator-section name="pre-body">
-                        <include-menu name="MainActionMenu" location="component://party/widget/partymgr/PartyMenus.xml"/>
-                    </decorator-section>
-                    <decorator-section name="body">
-                        <platform-specific><html><html-template multi-block="true" location="component://common-theme/template/includes/SetMultipleSelectJs.ftl"/></html></platform-specific>
-                        <section>
-                            <!-- do check for PARTYMGR, _VIEW permission -->
-                            <condition>
-                                <if-service-permission service-name="partyBasePermissionCheck" main-action="VIEW"/>
-                            </condition>
-                            <widgets>
-                                <screenlet id="FindPartyPanel">
-                                <platform-specific>
-								   <html>
-									<html-template
-										location="component://Masters/template/findUser.ftl" />
-								   </html>
-							      </platform-specific>
-                                    
-                                </screenlet>
-                                <screenlet >
-                                    <include-grid name="ListParty${extInfo}" location="component://party/widget/partymgr/PartyForms.xml"/>
-                                </screenlet>
-                            </widgets>
-                            <fail-widgets>
-                                <label style="h3" text="${uiLabelMap.PartyMgrViewPermissionError}"/>
-                            </fail-widgets>
-                        </section>
-                    </decorator-section>
-                </decorator-screen>
-            </widgets>
-        </section>
-    </screen>
+								</screenlet>
+								<screenlet>
+									<include-grid name="ListParty${extInfo}" location="component://party/widget/partymgr/PartyForms.xml" />
+								</screenlet>
+							</widgets>
+							<fail-widgets>
+								<label style="h3" text="${uiLabelMap.PartyMgrViewPermissionError}" />
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="viewprofile">
+		<section>
+			<actions>
+				<set field="headerItem" value="Master" />
+				<set field="subHeaderItem" value=" User Profile" />
+				<set field="titleProperty" value="PageTitleViewPartyProfile" />
+				<set field="tabButtonItem" value="viewprofile" />
+				<set field="labelTitleProperty" value="PartyTaxAuthInfos" />
+				<set field="partyId" from-field="parameters.partyId" />
+				<set field="DONE_PAGE" from-field="parameters.DONE_PAGE" default-value="viewprofile" />
+				<set field="layoutSettings.javaScripts[]" value="/partymgr/static/PartyProfileContent.js" global="true" />
+				<script location="component://party/src/main/groovy/org/apache/ofbiz/party/party/ViewProfile.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="MastersCommonDecorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<and>
+									<if-empty field="partyId" />
+									<not>
+										<if-empty field="parameters.telno" />
+									</not>
+								</and>
+							</condition>
+							<actions>
+								<service service-name="findPartyFromTelephone" auto-field-map="true" result-map="telnoMap" />
+								<entity-one entity-name="Party" value-field="party">
+									<field-map field-name="partyId" from-field="telnoMap.partyId" />
+								</entity-one>
+								<set field="parameters.partyId" from-field="party.partyId" />
+							</actions>
+							<widgets />
+						</section>
+						<section>
+							<condition>
+								<and>
+									<if-empty field="partyId" />
+									<not>
+										<if-empty field="parameters.email" />
+									</not>
+								</and>
+							</condition>
+							<actions>
+								<service service-name="findPartyFromEmailAddress" result-map="emailMap">
+									<field-map field-name="address" from-field="parameters.email" />
+								</service>
+								<entity-one entity-name="Party" value-field="party">
+									<field-map field-name="partyId" from-field="emailMap.partyId" />
+								</entity-one>
+								<set field="parameters.partyId" from-field="party.partyId" />
+							</actions>
+							<widgets />
+						</section>
+						<section>
+							<condition>
+								<not>
+									<if-empty field="party" />
+								</not>
+							</condition>
+							<widgets>
 
+								<section>
+									<widgets>
+										<include-portal-page id="PartyProfile" />
+									</widgets>
+								</section>
+							</widgets>
+							<fail-widgets>
+								<container>
+									<label style="h3">${uiLabelMap.PartyNoPartyFoundWithPartyId}:
+										${parameters.partyId}
+									</label>
+								</container>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="CreateUserLogin">
+		<section>
+			<actions>
+				<set field="headerItem" value="Create User Login" />
+				<set field="titleProperty" value="CreateUserLogin" />
+				<set field="tabButtonItem" value="viewprofile" />
+				<set field="labelTitleProperty" value="CreateUserLogin" />
+				<set field="cancelPage" from-field="parameters.CANCEL_PAGE" default-value="viewprofile" />
+				<set field="createUserLoginURI" value="ProfileCreateUserLogin" />
+				<set field="partyId" from-field="parameters.partyId" />
+			</actions>
+			<widgets>
+				<decorator-screen name="MastersCommonDecorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="${uiLabelMap.CreateUserLogin}">
+							<include-form name="AddUserLogin" location="component://common/widget/SecurityForms.xml" />
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+
+	<screen name="EditUserLogin">
+		<section>
+			<actions>
+				<set field="headerItem" value="Edit User" />
+				<set field="titleProperty" value="UserLoginUpdateSecuritySettings" />
+				<set field="tabButtonItem" value="viewprofile" />
+				<set field="labelTitleProperty" value="UserLoginUpdateSecuritySettings" />
+				<set field="updateUserLoginSecurityURI" value="ProfileUpdateUserLoginSecurity" />
+				<set field="updatePasswordURI" value="ProfileUpdatePassword" />
+				<set field="cancelPage" from-field="parameters.CANCEL_PAGE" default-value="viewprofile" />
+				<set field="partyId" from-field="parameters.partyId" />
+				<set field="userLoginId" from-field="parameters.userLoginId" />
+				<entity-one entity-name="UserLogin" value-field="editUserLogin" />
+			</actions>
+			<widgets>
+				<decorator-screen name="MastersCommonDecorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<container style="page-title">
+							<label text="${uiLabelMap.UserLoginUpdateSecuritySettings} - ${userLoginId}" />
+						</container>
+						<include-form name="UpdateUserLoginSecurity" location="component://common/widget/SecurityForms.xml" />
+						<screenlet title="${uiLabelMap.UserLoginChangePassword}">
+							<include-form name="UpdatePassword" location="component://common/widget/SecurityForms.xml" />
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditUserLoginSecurityGroups">
+		<section>
+			<actions>
+				<set field="headerItem" value="User login Security Group" />
+				<set field="titleProperty" value="PageTitleEditUserLoginSecurityGroups" />
+				<set field="tabButtonItem" value="viewprofile" />
+				<set field="cancelPage" from-field="parameters.CANCEL_PAGE" default-value="viewprofile" />
+				<set field="addUserLoginSecurityGroupURI" value="ProfileAddUserLoginToSecurityGroup" />
+				<set field="expireUserLoginSecurityGroupURI" value="ProfileExpireUserLoginFromSecurityGroup" />
+				<set field="updateUserLoginSecurityGroupURI" value="ProfileUpdateUserLoginToSecurityGroup" />
+				<set field="userLoginId" from-field="parameters.userLoginId" />
+				<entity-one entity-name="UserLogin" value-field="editUserLogin" />
+				<set field="partyId" from-field="parameters.partyId" default-value="${editUserLogin.partyId}" />
+			</actions>
+			<widgets>
+				<decorator-screen name="MastersCommonDecorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet id="AddUserLoginSecurityGroupsPanel" title="${uiLabelMap.AddUserLoginToSecurityGroup}" collapsible="true">
+							<include-form name="AddUserLoginSecurityGroup" location="component://common/widget/SecurityForms.xml" />
+						</screenlet>
+						<include-grid name="ListUserLoginSecurityGroups" location="component://common/widget/SecurityForms.xml" />
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="editperson">
+		<section>
+			<actions>
+				<set field="headerItem" value="Edit Person" />
+				<set field="titleProperty" value="PageTitleEditPersonalInformation" />
+				<set field="tabButtonItem" value="viewprofile" />
+				<set field="headerItem" value="find" />
+				<set field="labelTitleProperty" value="PageTitleEditPersonalInformation" />
+
+				<set field="donePage" from-field="parameters.DONE_PAGE" default-value="viewprofile" />
+				<set field="partyId" from-field="parameters.partyId" />
+				<entity-one entity-name="PartyAndPerson" value-field="personInfo" />
+			</actions>
+			<widgets>
+				<decorator-screen name="MastersCommonDecorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="${uiLabelMap.PageTitleEditPersonalInformation}">
+							<include-form name="EditPerson" location="component://party/widget/partymgr/PartyForms.xml" />
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="CreatePartyRelatedAccount">
+		<section>
+			<actions>
+				<set field="headerItem" value="Create Party Account" />
+				<set field="titleProperty" value="PartyAddRelatedAccount" />
+				<set field="tabButtonItem" value="viewprofile" />
+				<set field="labelTitleProperty" value="PartyAddRelatedAccount" />
+				<set field="partyId" from-field="parameters.partyId" />
+			</actions>
+			<widgets>
+				<decorator-screen name="MastersCommonDecorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="${uiLabelMap.PartyAddRelatedAccount}">
+							<include-form name="AddAccount" location="component://party/widget/partymgr/PartyForms.xml" />
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="CreateUserLogin">
+		<section>
+			<actions>
+				<set field="headerItem" value="Create User Login" />
+				<set field="titleProperty" value="CreateUserLogin" />
+				<set field="tabButtonItem" value="viewprofile" />
+				<set field="labelTitleProperty" value="CreateUserLogin" />
+				<set field="cancelPage" from-field="parameters.CANCEL_PAGE" default-value="viewprofile" />
+				<set field="createUserLoginURI" value="ProfileCreateUserLogin" />
+				<set field="partyId" from-field="parameters.partyId" />
+			</actions>
+			<widgets>
+				<decorator-screen name="MastersCommonDecorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="${uiLabelMap.CreateUserLogin}">
+							<include-form name="AddUserLogin" location="component://common/widget/SecurityForms.xml" />
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="findPlant">
+		<section>
+			<actions>
+				<set field="headerItem" value="Find Plant" />
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="MastersCommonDecorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet>
+							<platform-specific>
+								<html>
+									<html-template location="component://Masters/template/plantDetails.ftl" />
+								</html>
+							</platform-specific>
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="createPlant">
+		<section>
+			<actions>
+				<set field="headerItem" value="Create Plant" />
+			</actions>
+			<widgets>
+				<decorator-screen name="MastersCommonDecorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet>
+							<platform-specific>
+								<html>
+									<html-template location="component://Masters/template/plantDetails.ftl" />
+								</html>
+							</platform-specific>
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
 </screens>

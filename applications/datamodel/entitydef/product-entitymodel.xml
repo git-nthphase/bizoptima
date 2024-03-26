@@ -1000,19 +1000,27 @@ under the License.
         <field name="ownerPartyId" type="id"/>
         <field name="defaultInventoryItemTypeId" type="id"></field>
         <field name="facilityName" type="name"></field>
+        <field name="sequenceNum" type="numeric"></field>
         <field name="primaryFacilityGroupId" type="id"></field>
         <field name="oldSquareFootage" type="numeric" col-name="SQUARE_FOOTAGE"></field>
         <field name="facilitySize" type="fixed-point"></field>
         <field name="facilitySizeUomId" type="id"></field>
+        <field name="categoryTypeEnum" type="id"></field>
+        <field name="destinationFacilityId" type="id"></field>         
         <field name="productStoreId" type="id"></field>
         <field name="defaultDaysToShip" type="numeric"><description>In the absence of a product specific days to ship in ProductFacility, this will be used</description></field>
         <field name="openedDate" type="date-time"></field>
         <field name="closedDate" type="date-time"></field>
         <field name="description" type="description"></field>
-        <field name="defaultDimensionUomId" type="id"><description>This field store the unit of measurement of dimension (length, width and height)</description></field>
-        <field name="defaultWeightUomId" type="id"></field>
+        <field name="securityDeposit" type="fixed-point"></field>
         <field name="geoPointId" type="id"></field>
-        <field name="facilityLevel" type="numeric"><description>This field will define the level of facility.</description></field>
+        <field name="facilityCode" type="id"></field>
+        <field name="closedReason" type="id"><description>If this facility wants close permanently then check this flag.</description></field>
+        <field name="closedReasonDescription" type="description"><description>If this facility wants close permanently then check this flag.</description></field>      	       	         	    	   
+        <field name="latitude" type="floating-point" not-null="true"></field>
+        <field name="longitude" type="floating-point" not-null="true"></field>
+        <field name="isAppUser" type="id"></field>
+        <field name="isActive" type="indicator"/>
         <prim-key field="facilityId"/>
         <relation type="one" fk-name="FACILITY_FCTYP" rel-entity-name="FacilityType">
             <key-map field-name="facilityTypeId"/>
@@ -1020,6 +1028,7 @@ under the License.
         <relation type="one" fk-name="FACILITY_PARENT" title="Parent" rel-entity-name="Facility">
             <key-map field-name="parentFacilityId" rel-field-name="facilityId"/>
         </relation>
+
         <relation type="one" fk-name="FACILITY_PGRP" rel-entity-name="FacilityGroup">
             <key-map field-name="primaryFacilityGroupId" rel-field-name="facilityGroupId"/>
         </relation>
@@ -1029,12 +1038,7 @@ under the License.
         <relation type="one" fk-name="FAC_INVITM_TYPE" title="Default" rel-entity-name="InventoryItemType">
             <key-map field-name="defaultInventoryItemTypeId" rel-field-name="inventoryItemTypeId"/>
         </relation>
-        <relation type="one" fk-name="FAC_DEF_DUOM" title="Dimension" rel-entity-name="Uom">
-            <key-map field-name="defaultDimensionUomId" rel-field-name="uomId"/>
-        </relation>
-        <relation type="one" fk-name="FAC_DEF_WUOM" title="Weight" rel-entity-name="Uom">
-            <key-map field-name="defaultWeightUomId" rel-field-name="uomId"/>
-        </relation>
+   
         <relation type="one-nofk" rel-entity-name="ProductStore">
             <description>this was changed from the FK to better handle syncronization; this may be set back to be a FK in the future</description>
             <key-map field-name="productStoreId"/>
@@ -1047,7 +1051,19 @@ under the License.
         </relation>
       <relation type="one" fk-name="FACILITY_SUOM" title="FacilitySize" rel-entity-name="Uom">
         <key-map field-name="facilitySizeUomId" rel-field-name="uomId"/>
-      </relation>      
+      </relation>  
+      <relation type="one" fk-name="FACILITY_CAT_ENUM" title="Rating" rel-entity-name="Enumeration">
+        <key-map field-name="categoryTypeEnum" rel-field-name="enumId"/>
+      </relation>
+      <relation type="one" fk-name="FAC_CLOSE_REASON" title="closedReason" rel-entity-name="Enumeration"> 
+        <key-map field-name="closedReason" rel-field-name="enumId"/> 
+      </relation>  
+      <index name="FACILITY_SEQ_GENLKP">
+      	<index-field name="sequenceNum"/>
+      </index>
+      <index name="FACILITY_FAC_CODE">
+      	<index-field name="facilityCode"/>
+      </index>           
     </entity>
     <view-entity entity-name="FacilityAndContactMech" package-name="org.apache.ofbiz.product.facility" title="Facility and Contact Mech View">
         <member-entity entity-alias="FA" entity-name="Facility"/>

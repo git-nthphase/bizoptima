@@ -494,36 +494,36 @@ render borders around empty <td> elements */
 }
 
 .nav-pager ul .nav-first a {
-	background: url(/vasista/images/resultset_first.png) no-repeat;
+	background: url(/nthphase/images/resultset_first.png) no-repeat;
 }
 
 .nav-pager ul .nav-previous a {
-	background: url(/vasista/images/resultset_previous.png) no-repeat;
+	background: url(/nthphase/images/resultset_previous.png) no-repeat;
 }
 
 .nav-pager ul .nav-next a {
-	background: url(/vasista/images/resultset_next.png) no-repeat;
+	background: url(/nthphase/images/resultset_next.png) no-repeat;
 }
 
 .nav-pager ul .nav-last a {
-	background: url(/vasista/images/resultset_last.png) no-repeat;
+	background: url(/nthphase/images/resultset_last.png) no-repeat;
 }
 
 .nav-pager ul .nav-first-disabled {
-	background: url(/vasista/images/resultset_first_disabled.png) no-repeat;
+	background: url(/nthphase/images/resultset_first_disabled.png) no-repeat;
 }
 
 .nav-pager ul .nav-previous-disabled {
-	background: url(/vasista/images/resultset_previous_disabled.png)
+	background: url(/nthphase/images/resultset_previous_disabled.png)
 		no-repeat;
 }
 
 .nav-pager ul .nav-next-disabled {
-	background: url(/vasista/images/resultset_next_disabled.png) no-repeat;
+	background: url(/nthphase/images/resultset_next_disabled.png) no-repeat;
 }
 
 .nav-pager ul .nav-last-disabled {
-	background: url(/vasista/images/resultset_last_disabled.png) no-repeat;
+	background: url(/nthphase/images/resultset_last_disabled.png) no-repeat;
 }
 
 .nav-pager ul .nav-pagesize {
@@ -531,7 +531,7 @@ render borders around empty <td> elements */
 }
 
 .field-lookup a {
-	background: url(/vasista/images/application_view_list.png) no-repeat 0 0;
+	background: url(/nthphase/images/application_view_list.png) no-repeat 0 0;
 	display: inline-block;
 	/* margin: 3px 10px 0px 4px; */
 	vertical-align: top;
@@ -551,13 +551,13 @@ render borders around empty <td> elements */
 
 .fieldgroup-title-bar ul .collapsed,.fieldgroup-title-bar ul .collapsed:hover
 	{
-	background: url(/vasista/images/bullet_toggle_plus.png) no-repeat left
+	background: url(/nthphase/images/bullet_toggle_plus.png) no-repeat left
 		center;
 }
 
 .fieldgroup-title-bar ul .expanded,.fieldgroup-title-bar ul .expanded:hover
 	{
-	background: url(/vasista/images/bullet_toggle_minus.png) no-repeat left
+	background: url(/nthphase/images/bullet_toggle_minus.png) no-repeat left
 		center;
 }
 
@@ -750,12 +750,12 @@ Lookups
 }
 
 #footer {
-	/*  background: url("/vasista/poweredbyvasista.gif") no-repeat center;*/
+	/*  background: url("/nthphase/poweredbynthphase.gif") no-repeat center;*/
 	height: 9mm;
 }
 
 #footerLink {
-	/* background: url("/vasista/poweredbyvasista.gif") no-repeat center;*/
+	/* background: url("/nthphase/poweredbynthphase.gif") no-repeat center;*/
 	display: block;
 	height: 9mm;
 }
