@@ -793,6 +793,10 @@ DIV.screenlet {
 }
 
 /* Special Screenlet Handling for locals and timezone window */
+.basic-table{
+	width: 100%;
+	margin: 5px 10px;	
+}
 DIV.lists.screenlet {
 	margin-left: 25%;
 	margin-right: 25%;
@@ -1325,9 +1329,18 @@ ul#preferences-menu li a.help-link {
 }
 
 #app-navigation ul li ul li ul li {
-	display: block;
-	width: 100%;
+	list-style-type: none;
+	text-align: left;
+	margin: 1px 2px;
+	text-decoration: none;
+	background-color: #fff;
+	font-size: 12px;
+	display: inline-block;
+	position: relative;
+	min-width:100px;
+	width: auto;
 	border-bottom: 1px solid #ffffff;
+	white-space: nowrap;
 }
 
 #app-navigation ul li ul li:hover ul {
@@ -1338,9 +1351,7 @@ ul#preferences-menu li a.help-link {
 	position: relative;
 }
 
-.nav-item:hover {
-	background-color: #f0f0f0; /* Add hover effect */
-}
+
 
 .nav-item a {
 	display: block;
@@ -1353,7 +1364,9 @@ ul#preferences-menu li a.help-link {
 .nav-item:hover>a {
 	color: #000; /* Change text color on hover */
 }
-
+.nav-link:hover{
+	background: none;
+}
 .nav-item.has-submenu>a::after {
 	content: "\f078"; /* FontAwesome icon for submenu indicator */
 	font-family: "Font Awesome 5 Free";
@@ -4726,6 +4739,7 @@ box-shadow: 0px 9px 45px 4px rgba(0,0,0,0.61);
     border: none;
     cursor: pointer;
 }
+
 
 .dropdown_pro {
 	z-index: 1;

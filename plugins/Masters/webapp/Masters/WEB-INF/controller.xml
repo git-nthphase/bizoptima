@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<site-conf
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://ofbiz.apache.org/Site-Conf"
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ofbiz.apache.org/Site-Conf"
 	xsi:schemaLocation="http://ofbiz.apache.org/Site-Conf http://ofbiz.apache.org/dtds/site-conf.xsd">
-	<!-- The controller elements that are common to all OFBiz components can 
-		be found in the following xml file. A component can override the elements 
-		found in the common-controller.xml file. -->
-	<include
-		location="component://common/webcommon/WEB-INF/common-controller.xml" />
+	<!-- The controller elements that are common to all OFBiz components can be found in the following xml file. A component can override the elements found in the common-controller.xml file. -->
+	<include location="component://common/webcommon/WEB-INF/common-controller.xml" />
 
 	<description>Masters Component Site Configuration File</description>
 
 	<!-- Events to run on every request before security (chains exempt) -->
 	<!-- <preprocessor> </preprocessor> -->
 	<!-- Events to run on every request after all other processing (chains exempt) -->
-	<!-- <postprocessor> <event name="test" type="java" path="org.apache.ofbiz.webapp.event.TestEvent" 
-		invoke="test"/> </postprocessor> -->
+	<!-- <postprocessor> <event name="test" type="java" path="org.apache.ofbiz.webapp.event.TestEvent" invoke="test"/> </postprocessor> -->
 
 	<!-- Request Mappings -->
 	<request-map uri="main">
@@ -29,45 +23,204 @@
 	</request-map>
 	<request-map uri="findFacilityGroup">
 		<security https="true" auth="true" />
-		<response name="success" type="view"
-			value="findFacilityGroup" />
+		<response name="success" type="view" value="findFacilityGroup" />
 	</request-map>
 	<request-map uri="findFacilityGroupMember">
 		<security https="true" auth="true" />
-		<response name="success" type="view"
-			value="findFacilityGroupMember" />
+		<response name="success" type="view" value="findFacilityGroupMember" />
 	</request-map>
 	<request-map uri="users">
 		<security https="true" auth="true" />
-		<response name="success" type="view"
-			value="users" />
+		<response name="success" type="view" value="users" />
 	</request-map>
 	<request-map uri="findUser">
 		<security https="true" auth="true" />
-		<response name="success" type="view"
-			value="findUser" />
+		<response name="success" type="view" value="findUser" />
 	</request-map>
-	 <request-map uri="createCustomer">
-        <security https="true" auth="true"/>
-        <event type="simple" path="component://party/minilang/user/UserEvents.xml" invoke="createCustomer"/>
-        <response name="success" type="request-redirect" value="users">
-            <redirect-parameter name="partyId"/>
-        </response>
-        <response name="error" type="view" value="users"/>
-    </request-map>
-	
+	<request-map uri="createCustomer">
+		<security https="true" auth="true" />
+		<event type="simple" path="component://party/minilang/user/UserEvents.xml" invoke="createCustomer" />
+		<response name="success" type="request-redirect" value="users">
+			<redirect-parameter name="partyId" />
+		</response>
+		<response name="error" type="view" value="users" />
+	</request-map>
+	<request-map uri="viewprofile">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="viewprofile" save-home-view="true" />
+	</request-map>
+	<request-map uri="createPartyGroup">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="createPartyGroup" />
+		<response name="success" type="request-redirect" value="viewprofile">
+			<redirect-parameter name="partyId" />
+		</response>
+		<response name="error" type="view" value="EditPartyGroup" />
+	</request-map>
+	<request-map uri="updatePartyGroup">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="updatePartyGroup" />
+		<response name="success" type="request-redirect" value="viewprofile">
+			<redirect-parameter name="partyId" />
+		</response>
+		<response name="error" type="view" value="EditPartyGroup" />
+	</request-map>
+	<request-map uri="createPartyAttribute">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="createPartyAttribute" />
+		<response name="success" type="request" value="backHome" />
+		<response name="error" type="view" value="EditPartyAttribute" />
+	</request-map>
+	<request-map uri="updatePartyAttribute">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="updatePartyAttribute" />
+		<response name="success" type="request-redirect" value="viewprofile">
+			<redirect-parameter name="partyId" />
+		</response>
+		<response name="error" type="view" value="EditPartyAttribute" />
+	</request-map>
+	<request-map uri="removePartyAttribute">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="removePartyAttribute" />
+		<response name="success" type="request-redirect" value="viewprofile">
+			<redirect-parameter name="partyId" />
+		</response>
+		<response name="error" type="view" value="viewprofile" />
+	</request-map>
+	<request-map uri="removePartyContent">
+		<security auth="true" https="true" />
+		<event type="service" invoke="removePartyContent" />
+		<response name="success" type="request-redirect" value="viewprofile">
+			<redirect-parameter name="partyId" />
+		</response>
+		<response name="error" type="request-redirect" value="viewprofile">
+			<redirect-parameter name="partyId" />
+		</response>
+	</request-map>
+
+	<request-map uri="uploadPartyContent">
+		<security auth="true" https="true" />
+		<event type="service" invoke="uploadPartyContentFile" />
+		<response name="success" type="request-redirect" value="viewprofile">
+			<redirect-parameter name="partyId" />
+		</response>
+		<response name="error" type="request-redirect" value="viewprofile">
+			<redirect-parameter name="partyId" />
+		</response>
+	</request-map>
+	<request-map uri="PartyGeoLocation">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="PartyGeoLocation" />
+		<response name="error" type="request-redirect" value="viewprofile">
+			<redirect-parameter name="partyId" />
+		</response>
+	</request-map>
+	<request-map uri="GetPartyGeoLocation">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="GetPartyGeoLocation" />
+		<response name="error" type="request-redirect" value="viewprofile">
+			<redirect-parameter name="partyId" />
+		</response>
+	</request-map>
+	<!-- Profile-specific security requests -->
+	<request-map uri="ProfileCreateNewLogin">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="ProfileCreateNewLogin" />
+	</request-map>
+	<request-map uri="ProfileCreateUserLogin">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="createUserLogin" />
+		<response name="success" type="view" value="ProfileEditUserLogin" />
+		<response name="error" type="view" value="ProfileCreateNewLogin" />
+	</request-map>
+	<request-map uri="ProfileEditUserLogin">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="ProfileEditUserLogin" />
+	</request-map>
+	<request-map uri="ProfileUpdatePassword">
+		<security https="true" auth="true" />
+		<event type="simple" path="component://securityext/minilang/login/LoginSimpleEvents.xml" invoke="updatePassword" />
+		<response name="success" type="view" value="ProfileEditUserLogin" />
+		<response name="error" type="view" value="ProfileEditUserLogin" />
+	</request-map>
+	<request-map uri="ProfileUpdateUserLoginSecurity">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="updateUserLoginSecurity" />
+		<response name="success" type="view" value="ProfileEditUserLogin" />
+		<response name="error" type="view" value="ProfileEditUserLogin" />
+	</request-map>
+	<request-map uri="ProfileAddUserLoginToSecurityGroup">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="addUserLoginToSecurityGroup" />
+		<response name="success" type="view" value="ProfileEditUserLoginSecurityGroups" />
+		<response name="error" type="view" value="ProfileEditUserLoginSecurityGroups" />
+	</request-map>
+	<request-map uri="ProfileExpireUserLoginFromSecurityGroup">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="expireUserLoginSecurityGroup" />
+		<response name="success" type="view" value="ProfileEditUserLoginSecurityGroups" />
+		<response name="error" type="view" value="ProfileEditUserLoginSecurityGroups" />
+	</request-map>
+	<request-map uri="ProfileUpdateUserLoginToSecurityGroup">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="updateUserLoginToSecurityGroup" />
+		<response name="success" type="view" value="ProfileEditUserLoginSecurityGroups" />
+		<response name="error" type="view" value="ProfileEditUserLoginSecurityGroups" />
+	</request-map>
+	<request-map uri="ProfileEditUserLoginSecurityGroups">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="ProfileEditUserLoginSecurityGroups" />
+	</request-map>
+	<request-map uri="editperson">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="EditPerson" />
+	</request-map>
+	<request-map uri="AddPartyRelatedAccount">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="AddPartyRelatedAccount" />
+	</request-map>
+	<request-map uri="AddPartyRelatedAccount">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="AddPartyRelatedAccount" />
+	</request-map>
+	<request-map uri="findPlant">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="findPlant" />
+	</request-map>
+	<request-map uri="createPlant">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="createPlant" />
+	</request-map>
+	<request-map uri="createNewPlant">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="createPlant" />
+		<response name="success" type="view" value="createPlant" />
+		<response name="error" type="view" value="createPlant" />
+	</request-map>
+	<request-map uri="UpdateFacility">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="updateFacility" />
+		<response name="success" type="view" value="EditFacility" />
+		<response name="error" type="view" value="EditFacility" />
+	</request-map>
+
+	<!-- end of request mappings -->
+
 
 	<!-- View Mappings -->
-	<view-map name="main" type="screen"
-		page="component://Masters/widget/MastersScreens.xml#main" />
-	<view-map name="findFacility" type="screen"
-		page="component://Masters/widget/MastersScreens.xml#findFacility" />
-	<view-map name="findFacilityGroup" type="screen"
-		page="component://Masters/widget/MastersScreens.xml#findFacilityGroup" />
-	<view-map name="findFacilityGroupMember" type="screen"
-		page="component://Masters/widget/MastersScreens.xml#findFacilityGroupMember" />
-	<view-map name="users" type="screen"
-		page="component://Masters/widget/MastersScreens.xml#users" />
-	<view-map name="findUser" type="screen"
-		page="component://Masters/widget/MastersScreens.xml#findparty" />	
+	<view-map name="main" type="screen" page="component://Masters/widget/MastersScreens.xml#main" />
+	<view-map name="findFacility" type="screen" page="component://Masters/widget/MastersScreens.xml#findFacility" />
+	<view-map name="findFacilityGroup" type="screen" page="component://Masters/widget/MastersScreens.xml#findFacilityGroup" />
+	<view-map name="findFacilityGroupMember" type="screen" page="component://Masters/widget/MastersScreens.xml#findFacilityGroupMember" />
+	<view-map name="users" type="screen" page="component://Masters/widget/MastersScreens.xml#users" />
+	<view-map name="findUser" type="screen" page="component://Masters/widget/MastersScreens.xml#findparty" />
+	<view-map name="viewprofile" type="screen" page="component://Masters/widget/MastersScreens.xml#viewprofile" />
+	<view-map name="ProfileCreateNewLogin" type="screen" page="component://Masters/widget/MastersScreens.xml#CreateUserLogin" />
+	<view-map name="ProfileEditUserLogin" type="screen" page="component://Masters/widget/MastersScreens.xml#EditUserLogin" />
+	<view-map name="ProfileEditUserLoginSecurityGroups" type="screen" page="component://Masters/widget/MastersScreens.xml#EditUserLoginSecurityGroups" />
+	<view-map name="editperson" type="screen" page="component://Masters/widget/MastersScreens.xml#editperson" />
+	<view-map name="AddPartyRelatedAccount" type="screen" page="component://Masters/widget/MastersScreens.xml#CreatePartyRelatedAccount" />
+	<view-map name="findPlant" type="screen" page="component://Masters/widget/MastersScreens.xml#findPlant" />
+	<view-map name="createPlant" type="screen" page="component://Masters/widget/MastersScreens.xml#createPlant" />
+
 </site-conf>

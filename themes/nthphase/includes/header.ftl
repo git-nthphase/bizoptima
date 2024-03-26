@@ -222,7 +222,7 @@ requestAttributes.partyGroup></#if>
                   <#if notificationCount?has_content> 
                   <li id="notify_li">
                      <span id="msg_count">${notificationCount}</span>
-                     <a href="#" id="notifylink"><img src="/vasista/bell.png" height="25" width="25"></a>
+                     <a href="#" id="notifylink"><img src="/nthphase/bell.png" height="25" width="25"></a>
                      <div id="notificationContainer">
                         <div id="notificationTitle">
                            Notifications
